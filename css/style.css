@@ -4,17 +4,18 @@
       font-family:'Titillium Web', 'Helvetica', 'Arial', sans;
     }
 
-    .timestamp{
+    .timeStamp{
       font-weight: 200;
       font-color: #888888;
     }
     .newTweets{
       color:blue;
     }
-    .newtweets a, a{
+    .newTweets a, a{
       text-decoration:underline;
       color:red;
     }
-    .sharksforcheap{
-      text-transform: uppercase;
+    .deadTweets{
+
+      background-color:red;
     }
