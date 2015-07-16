@@ -1,13 +1,17 @@
 <!DOCTYPE html>
 <html>
   <head>
+  <link href='http://fonts.googleapis.com/css?family=Titillium+Web:400,700,300,400italic' rel='stylesheet' type='text/css'>
     <script src="jquery.js"></script>
     <script src="data_generator.js"></script>
     <style>
+    .tweet{
+      font-family:'Titillium Web', 'Helvetica', 'Arial', sans;
+    }
     .newTweets{
       color:blue;
     }
-    .clickable{
+    a{
       text-decoration:underline;
       color:red;
     }
@@ -25,9 +29,9 @@
             while(streams.home.length > 0){
                   var tweet = streams.home.shift();
                   var $tweet = $('<div></div>');
-                  $tweet.addClass(tweet.user);
-                  $tweet.text('<a class="clickable" href="#">@' + tweet.user + '</a>: ' + tweet.message + " time: " + tweet.created_at);
+                  $tweet.text('@' + tweet.user + ': ' + tweet.message + " time: " + tweet.created_at);
                   $tweet.prependTo($body);
+                  $tweet.addClass('tweet');
                   $tweet.addClass('newTweets');
             }
           }
