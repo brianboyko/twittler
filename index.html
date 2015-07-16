@@ -3,23 +3,36 @@
   <head>
     <script src="jquery.js"></script>
     <script src="data_generator.js"></script>
+    <style>
+    .newTweets{
+      color:blue;
+    }
+    .clickable{
+      text-decoration:underline;
+      color:red;
+    }
+    </style>
   </head>
   <body>
     <script>
 
       $(document).ready(function(){
-        var $body = $('body');
+        var $body = $('body'); 
         $body.html('');
 
-        var index = streams.home.length - 1;
-        while(index >= 0){
-          var tweet = streams.home[index];
-          var $tweet = $('<div></div>');
-          $tweet.text('@' + tweet.user + ': ' + tweet.message);
-          $tweet.appendTo($body);
-          index -= 1;
-        }
+          var showTweets = function (interval){
+            $('.newTweets').removeClass('newTweets');
+            while(streams.home.length > 0){
+                  var tweet = streams.home.shift();
+                  var $tweet = $('<div></div>');
+                  $tweet.addClass(tweet.user);
+                  $tweet.text('<a class="clickable" href="#">@' + tweet.user + '</a>: ' + tweet.message + " time: " + tweet.created_at);
+                  $tweet.prependTo($body);
+                  $tweet.addClass('newTweets');
+            }
+          }
 
+          setInterval(showTweets, 1500);
       });
 
     </script>
