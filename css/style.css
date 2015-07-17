@@ -1,19 +1,90 @@
-@import "http://fonts.googleapis.com/css?family=Titillium+Web:400,200,300,700,400italic";
+@import url(http://fonts.googleapis.com/css?family=Titillium+Web:400,200,300,700,400italic);
+@import url(http://fonts.googleapis.com/css?family=Raleway:700,400);
+@import url('normalize.css');
+
+body {
+    background-image:url(../images/bay-area.jpg);
+        background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center; 
+    background-size:cover;
+}
+
+.entireContainer{
+  max-width:90%;
+  width:800px;
+  margin:auto;
+  margin-top:15px;
+  margin-bottom:15px;
+  padding:10px;
+  background-color: rgba(0, 0, 0, 0.75);
+  -webkit-border-radius: 10px;
+-moz-border-radius: 10px;
+border-radius: 10px;
+}
+
+header {
+    font-family:'Titillium Web','Helvetica','Arial',sans;
+    font-weight:700;
+    padding:10px;
+    background-color:rgba(153, 204, 255,0.90);
+    -webkit-border-radius:10px;
+    -moz-border-radius:10px;
+    border-radius:10px;
+    -webkit-box-shadow:3px 3px 5px 0 rgba(0,0,0,0.75);
+    -moz-box-shadow:3px 3px 5px 0 rgba(0,0,0,0.75);
+    box-shadow:3px 3px 5px 0 rgba(0,0,0,0.75);
+    text-align:left;
+}
+
+.guano{
+  float:right;
+}
+
+header .title {
+    line-height:60px;
+    font-size:60px;
+}
+
+header .subhead {
+    font-size:20px;
+    font-variant:small-caps;
+}
+
+#tweetContainer {
+    background-color:rgba(255,255,255,0.1);
+    max-width:800px;
+
+}
 
 .tweet {
-    font-family:'Titillium Web','Helvetica','Arial',sans
+    font-family:'Titillium Web','Helvetica','Arial',sans;
+    padding:10px;
+    margin:10px;
+    background-color:rgba(255,255,255,0.9);
+    -webkit-border-radius:10px;
+    -moz-border-radius:10px;
+    border-radius:10px;
+    -webkit-box-shadow:3px 3px 5px 0 rgba(0,0,0,0.75);
+    -moz-box-shadow:3px 3px 5px 0 rgba(0,0,0,0.75);
+    box-shadow:3px 3px 5px 0 rgba(0,0,0,0.75);
+}
+
+.message{
+    font-size:22px;
 }
 
 .timeStamp {
     font-weight:200;
-    font-color:#888
+    color:#888;
+    text-align:right;
 }
 
 .newTweets {
-    color:blue
+    color:blue;
 }
 
 .userlink {
     text-decoration:underline;
-    color:red
+    color:red;
 }

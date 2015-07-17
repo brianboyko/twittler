@@ -1,6 +1,6 @@
 $(document).ready(function() {
-    var $body = $('body');
-    $body.html('');
+    var $tweetContainer = $('#tweetContainer');
+    $tweetContainer.html('');
     var globalTimeline = 'tweet'; // switches from 'tweet' to specific usernames to determine which timeline to show
     var switchTimeline = function(username) {
         console.log('switchTimeline username: ' + username)
@@ -47,13 +47,13 @@ $(document).ready(function() {
             $tweet.data('tweetNumber', globalTweetNumber);
             var uniqueID = "TW" + globalTweetNumber;
             // generate the inner html of the $tweet div. Every username link will have the class "userlink" so that we can identify it later AS a userlink and style it. 
-            $tweet.html('' + uniqueID + '@' +
+            $tweet.html('#' + globalTweetNumber + '   @' +
                 '<a class="userlink" id="' + uniqueID +
-                '" href="#">' + tweet.user + '</a>: ' + tweet.message +
-                '<span class="timeStamp"> time: ' + tweet.created_at +
-                '</span>');
+                '" href="#">' + tweet.user + '</a>: <div class="message">' + tweet.message +
+                '</div><div class="timeStamp">' + tweet.created_at +
+                '</div>');
             // and fade those suckers in. 
-            $tweet.fadeIn().prependTo($body);
+            $tweet.fadeIn().prependTo($tweetContainer);
             // Now that we have marked the globalTweetNumber, let's increment it for the next tweet.
             globalTweetNumber++;
         } // END WHILE
