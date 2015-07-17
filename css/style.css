@@ -15,4 +15,7 @@
       text-decoration:underline;
       color:red;
     }
+    .hideMe{
+      display:none;
+    }
 
