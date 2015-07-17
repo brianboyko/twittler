@@ -1,8 +1,7 @@
      $(document).ready(function() {
          var $body = $('body');
          $body.html('');
-
-
+         var globalTimeline = 'tweet';
          // Each tweet is given a unique number
          var globalTweetNumber = 0;
          var showTweets = function(interval) {
@@ -30,58 +29,34 @@
                  $tweet.data('user', tweet.user);
                  $tweet.data('tweetNumber', globalTweetNumber);
                  var uniqueID = "TW" + globalTweetNumber;
-
                  // generate the inner html of the $tweet div. Every username link will have the class "userlink" so that we can identify it later AS a userlink and style it. 
-                 $tweet.html(''+ uniqueID + '@' + '<a class="userlink" id="'+ uniqueID +'" href="#">' +
-                     tweet.user + '</a>: ' + tweet.message +
+                 $tweet.html('' + uniqueID + '@' +
+                     '<a class="userlink" id="' + uniqueID +
+                     '" href="#">' + tweet.user + '</a>: ' +
+                     tweet.message +
                      '<span class="timeStamp"> time: ' + tweet.created_at +
                      '</span>');
-
-
-
-
                  // and fade those suckers in. 
                  $tweet.fadeIn().prependTo($body);
                  // Now that we have marked the globalTweetNumber, let's increment it for the next tweet.
                  globalTweetNumber++;
-                
-
-
              } // END WHILE
+             // Since we're looping this, let's unbind the events from earlier, otherwise we'd have multiple events on the the same thing.  
+             $('.tweet').find('.userlink').unbind('click');
+             // Let's add unique event listeners for each item. 
+             var togglenumber = 1;
+             $('.tweet').find('.userlink').on('click', function(
+                 event) {
                 
-                // Since we're looping this, let's unbind the events from earlier, otherwise we'd have multiple events on the the same thing.  
-
-                 $('.tweet').unbind('click');
-                 // Let's add unique event listeners for each item. 
-                 $('.tweet').find('.userlink').on('click', function(event){
-                    console.log($(this).attr('id') + " " + "clicked on.");
-                    console.log($(this).parent().data().user);
-                    $('.'+$(this).parent().data().user).toggle();
-                 });
-
-
+                 console.log($(this).attr('id') + " " +
+                     "clicked on.");
+                 console.log($(this).parent().data().user);
+                 $('.' + $(this).parent().data().user).toggle();
+                 console.log('toggled times:' + togglenumber);
+                 togglenumber++;
+             });
          };
          showTweets();
          setInterval(showTweets, 10000);
      });
       // END PROGRAM
-     /*
-
-                $('.tweet').unbind('click');
-           $('.tweet').find('.userlink').on('click', function(
-                 event) {
-                 console.log('clickity-click on:' + $(this).parent()                    .data().user);
-
-                $('.tweet').filter(function(event) {
-                     console.log(
-                         "keeping tweets from: " +
-                         $(this).data().user
-                     );
-                     return ($('.tweet').data().user ===
-                         $(this).data().user
-                     );
-                 }).fadeOut(400);
-             });
-         
-
-         */
