@@ -1,45 +1,26 @@
 $(document).ready(function() {
-    // declare global variables
+    var $body = $('body');
+    $body.html('');
     var globalTimeline = 'tweet'; // switches from 'tweet' to specific usernames to determine which timeline to show
-    // clear tweetContainer on page load
-    var $tweetContainer = $('#tweetContainer');
-    $tweetContainer.html('');
-    // Each tweet is given a unique number to help identify in debugging.
-    var globalTweetNumber = 0;
-    // function to switch the timeline to and from specific users to main. 
     var switchTimeline = function(username) {
+        console.log('switchTimeline username: ' + username)
         if (globalTimeline === username) {
             $('.tweet').fadeIn();
-            $(".return").slideUp("normal", function() {
-                $('.return').remove();
-            });
             globalTimeline = 'tweet';
         } else if (globalTimeline !== username) {
             $('.tweet').filter(function() {
                 return !($(this).hasClass('' + username));
             }).fadeOut();
             globalTimeline = username;
-            $('.subhead').after('<div class="return">Now Viewing ' +
-                globalTimeline +
-                '\'s timeline<BR><a class="reset">Return to Main Timeline</A></div>'
-            );
-            $('.return').hide().slideDown();
-            $('.return').on('click', function(event) {
-                // This will fadeout all elements that don't conform & set the timeline to the user -- or if the timeline is on the user, set it back to all tweets.
-                switchTimeline(globalTimeline);
-                $(".return").slideUp("normal", function() {
-                    $('.return').remove();
-                });
-            });
         }
     };
-    // function to ensure only the correct tweets will show in the current timeline. 
     var discernTimeline = function() {
         $('.tweet').filter(function() {
             return !($(this).hasClass('' + globalTimeline));
         }).hide();
     };
-    // this function runs every 3 seconds.
+    // Each tweet is given a unique number
+    var globalTweetNumber = 0;
     var showTweets = function(interval) {
         // We're running showTweets again, so let's remove .newTweets from the old newTweets, because they're now old. 
         $('.newTweets').removeClass('newTweets');
@@ -66,15 +47,13 @@ $(document).ready(function() {
             $tweet.data('tweetNumber', globalTweetNumber);
             var uniqueID = "TW" + globalTweetNumber;
             // generate the inner html of the $tweet div. Every username link will have the class "userlink" so that we can identify it later AS a userlink and style it. 
-            $tweet.html('<div class="profile">&nbsp;</div>#' +
-                globalTweetNumber + '   @' +
+            $tweet.html('' + uniqueID + '@' +
                 '<a class="userlink" id="' + uniqueID +
-                '" href="#">' + tweet.user +
-                '</a>: <div class="message">' + tweet.message +
-                '</div><div class="timeStamp">' + tweet.created_at +
-                '</div>');
-            // and slide those suckers in. 
-            $tweet.fadeIn().prependTo($tweetContainer);
+                '" href="#">' + tweet.user + '</a>: ' + tweet.message +
+                '<span class="timeStamp"> time: ' + tweet.created_at +
+                '</span>');
+            // and fade those suckers in. 
+            $tweet.fadeIn().prependTo($body);
             // Now that we have marked the globalTweetNumber, let's increment it for the next tweet.
             globalTweetNumber++;
         } // END WHILE
@@ -92,6 +71,6 @@ $(document).ready(function() {
         discernTimeline();
     };
     showTweets();
-    setInterval(showTweets, 3000);
+    setInterval(showTweets, 10000);
 });
 // END PROGRAM

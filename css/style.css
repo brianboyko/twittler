@@ -1,33 +1,55 @@
-@import url(http://fonts.googleapis.com/css?family=Titillium+Web:400,200,300,700,400italic);
-@import url(http://fonts.googleapis.com/css?family=Raleway:700,400);
+@import url('http://fonts.googleapis.com/css?family=Titillium+Web:400,200,300,700,400italic');
+
+@import url('http://fonts.googleapis.com/css?family=Lobster');
+
 @import url('normalize.css');
 
 body {
     background-image:url(../images/bay-area.jpg);
-        background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-position: center; 
+    background-repeat:no-repeat;
+    background-attachment:fixed;
+    background-position:center;
     background-size:cover;
 }
 
-.entireContainer{
-  max-width:90%;
-  width:800px;
-  margin:auto;
-  margin-top:15px;
-  margin-bottom:15px;
-  padding:10px;
-  background-color: rgba(0, 0, 0, 0.75);
-  -webkit-border-radius: 10px;
--moz-border-radius: 10px;
-border-radius: 10px;
+.entireContainer {
+    max-width:90%;
+    width:800px;
+    margin:auto;
+    margin-top:15px;
+    margin-bottom:15px;
+    padding:10px;
+    background-color:#000;
+    background-color:rgba(0,0,0,0.75);
+    -webkit-border-radius:10px;
+    -moz-border-radius:10px;
+    border-radius:10px
 }
 
 header {
     font-family:'Titillium Web','Helvetica','Arial',sans;
     font-weight:700;
     padding:10px;
-    background-color:rgba(153, 204, 255,0.90);
+    background-color:#9cf;
+    background-color:rgba(153,204,255,0.90);
+    -webkit-border-radius:10px;
+    -moz-border-radius:10px;
+    border-radius:10px;
+    -webkit-box-shadow:3px 3px 5px 0 rgba(0,0,0,0.75);
+    -moz-box-shadow:3px 3px 5px 0 rgba(0,0,0,0.75);
+    box-shadow:3px 3px 5px 0 rgba(0,0,0,0.75);
+    text-align:left
+}
+
+.guano {
+    float:right
+}
+
+.return {
+    font-family:'Titillium Web','Helvetica','Arial',sans;
+    font-weight:700;
+    padding:10px;
+    background-color:rgba(255,255,153,0.90);
     -webkit-border-radius:10px;
     -moz-border-radius:10px;
     border-radius:10px;
@@ -35,56 +57,96 @@ header {
     -moz-box-shadow:3px 3px 5px 0 rgba(0,0,0,0.75);
     box-shadow:3px 3px 5px 0 rgba(0,0,0,0.75);
     text-align:left;
+    margin-top:10px
 }
 
-.guano{
-  float:right;
+.reset {
+    color:red
 }
 
 header .title {
     line-height:60px;
     font-size:60px;
+    color:#ff0;
+    text-shadow:3px 3px 0 #000,-1px -1px 0 #000,1px -1px 0 #000,-1px 1px 0 #000,1px 1px 0 #000
 }
 
 header .subhead {
     font-size:20px;
-    font-variant:small-caps;
-}
-
-#tweetContainer {
-    background-color:rgba(255,255,255,0.1);
-    max-width:800px;
-
+    font-family:"Lobster";
+    color:#fff;
+    text-shadow:3px 3px 0 #000,-1px -1px 0 #000,1px -1px 0 #000,-1px 1px 0 #000,1px 1px 0 #000
 }
 
 .tweet {
     font-family:'Titillium Web','Helvetica','Arial',sans;
     padding:10px;
     margin:10px;
+    background-color:#fff;
     background-color:rgba(255,255,255,0.9);
     -webkit-border-radius:10px;
     -moz-border-radius:10px;
     border-radius:10px;
     -webkit-box-shadow:3px 3px 5px 0 rgba(0,0,0,0.75);
     -moz-box-shadow:3px 3px 5px 0 rgba(0,0,0,0.75);
-    box-shadow:3px 3px 5px 0 rgba(0,0,0,0.75);
+    box-shadow:3px 3px 5px 0 rgba(0,0,0,0.75)
 }
 
-.message{
-    font-size:22px;
+.message {
+    font-size:22px
 }
 
 .timeStamp {
     font-weight:200;
     color:#888;
-    text-align:right;
+    text-align:right
 }
 
 .newTweets {
-    color:blue;
+    color:blue
 }
 
 .userlink {
     text-decoration:underline;
-    color:red;
+    color:red
+}
+
+.profile {
+    background:url(../images/dunno.jpg);
+    height:60px;
+    width:60px;
+    margin-right:10px;
+    background-size:60px 60px;
+    background-repeat:no-repeat;
+    -webkit-border-radius:5px;
+    -moz-border-radius:5px;
+    border-radius:5px;
+    -webkit-box-shadow:3px 3px 5px 0 rgba(0,0,0,0.75);
+    -moz-box-shadow:3px 3px 5px 0 rgba(0,0,0,0.75);
+    box-shadow:3px 3px 5px 0 rgba(0,0,0,0.75);
+    float:left
+}
+
+.sharksforcheap .profile {
+    background:url(http://pbs.twimg.com/profile_images/3737419103/b81bf3e4ba350fec48493784880241c2.jpeg);
+    background-size:60px 60px;
+    background-repeat:no-repeat
+}
+
+.shawndrost .profile {
+    background:url(http://pbs.twimg.com/profile_images/586651979348250624/3n3kd_5P_400x400.jpg);
+    background-size:60px 60px;
+    background-repeat:no-repeat
+}
+
+.mracus .profile {
+    background:url(http://pbs.twimg.com/profile_images/460312331923107840/m1Fip-Vt_400x400.jpeg);
+    background-size:60px 60px;
+    background-repeat:no-repeat
+}
+
+.douglascalhoun .profile {
+    background:url(http://pbs.twimg.com/profile_images/1831644430/DSC02750_400x400.JPG);
+    background-size:60px 60px;
+    background-repeat:no-repeat
 }
