@@ -11,7 +11,7 @@
     .newTweets{
       color:blue;
     }
-    .newTweets a, a{
+    .userlink{
       text-decoration:underline;
       color:red;
     }
