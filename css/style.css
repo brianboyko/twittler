@@ -1,21 +1,19 @@
-@import url(http://fonts.googleapis.com/css?family=Titillium+Web:400,200,300,700,400italic);
+@import "http://fonts.googleapis.com/css?family=Titillium+Web:400,200,300,700,400italic";
 
-    .tweet{
-      font-family:'Titillium Web', 'Helvetica', 'Arial', sans;
-    }
+.tweet {
+    font-family:'Titillium Web','Helvetica','Arial',sans
+}
 
-    .timeStamp{
-      font-weight: 200;
-      font-color: #888888;
-    }
-    .newTweets{
-      color:blue;
-    }
-    .userlink{
-      text-decoration:underline;
-      color:red;
-    }
-    .hideMe{
-      display:none;
-    }
+.timeStamp {
+    font-weight:200;
+    font-color:#888
+}
 
+.newTweets {
+    color:blue
+}
+
+.userlink {
+    text-decoration:underline;
+    color:red
+}

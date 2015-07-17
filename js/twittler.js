@@ -2,8 +2,6 @@ $(document).ready(function() {
     var $body = $('body');
     $body.html('');
     var globalTimeline = 'tweet'; // switches from 'tweet' to specific usernames to determine which timeline to show
-    
-
     var switchTimeline = function(username) {
         console.log('switchTimeline username: ' + username)
         if (globalTimeline === username) {
@@ -11,19 +9,16 @@ $(document).ready(function() {
             globalTimeline = 'tweet';
         } else if (globalTimeline !== username) {
             $('.tweet').filter(function() {
-                return !($(this).hasClass(''+username));
+                return !($(this).hasClass('' + username));
             }).fadeOut();
             globalTimeline = username;
         }
     };
-
-
-    var discernTimeline = function(){
+    var discernTimeline = function() {
         $('.tweet').filter(function() {
-                return !($(this).hasClass(''+globalTimeline));
-            }).fadeOut();
+            return !($(this).hasClass('' + globalTimeline));
+        }).hide();
     };
-
     // Each tweet is given a unique number
     var globalTweetNumber = 0;
     var showTweets = function(interval) {
@@ -69,8 +64,10 @@ $(document).ready(function() {
             console.log($(this).attr('id') + " " +
                 "clicked on.");
             console.log($(this).parent().data().user);
+            // This will fadeout all elements that don't conform & set the timeline to the user -- or if the timeline is on the user, set it back to all tweets.
             switchTimeline($(this).parent().data().user);
         });
+        // This hides any newly generated tweets that do not have a class that is stored in the globalTimeline variable. 
         discernTimeline();
     };
     showTweets();
