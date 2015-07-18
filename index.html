@@ -1,32 +1,36 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <link href="css/style.css" rel="stylesheet" type="text/css">
-    <script src="js/jquery.js"></script>
-    <script src="js/data_generator.js"></script>
+  <link href="css/style.css" rel="stylesheet" type="text/css">
+  <script src="js/jquery.js"></script>
+  <script src="js/data_generator.js"></script>
 
-    <title>Bay Area Twitter Simulator for High Information Technology</title>
+  <title>Bay Area Twitter Simulator for High Information Technology</title>
 </head>
 
 <body>
-    <div class="entireContainer">
-        <header>
-            <img class="guano" src="images/guano.png">
+  <div class="entireContainer">
+    <header>
+      <img class="guano" src="images/guano.png">
 
-            <div class="title">
-                BATSHIT
-            </div>
+      <div class="title">
+        BATSHIT
+      </div>
 
-            <div class="subhead">
-                Bay Area Twitter Simulator for High Information Technology
-            </div>
-            <div id="input"><input type="text" name="login" size="30" id="userLogin" placeholder="Enter your Username"></input>
-            <input type="text" name="login" id="userTweet" size="60" placeholder="Make your tweet!"></input></div>
+      <div class="subhead">
+        Bay Area Twitter Simulator for High Information Technology
+      </div>
 
-            <div style="clear:both"></div>
-        </header>
+      <div id="input">
+        <input id="userLogin" name="login" placeholder="Enter your Username"
+        size="30" type="text"> <input id="userTweet" name="login" placeholder=
+        "Make your tweet!" size="60" type="text">
+      </div>
 
-        <div id="tweetContainer"></div>
-    </div><script src="js/twittler.js"></script>
+      <div style="clear:both"></div>
+    </header>
+
+    <div id="tweetContainer"></div>
+  </div><script src="js/twittler.js"></script>
 </body>
 </html>
