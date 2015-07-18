@@ -78,6 +78,36 @@ header .subhead {
     text-shadow:3px 3px 0 #000,-1px -1px 0 #000,1px -1px 0 #000,-1px 1px 0 #000,1px 1px 0 #000
 }
 
+header #input{
+  margin-top:10px;
+  padding:5px;
+
+
+  background-color:#FFFFCC;
+-webkit-border-radius: 10px;
+-moz-border-radius: 10px;
+border-radius: 10px;
+}
+
+header #input input{
+  padding:5px;
+  margin:10px;
+  bgcolor: white;
+  border: 1px solid #CCCCFF;
+  -webkit-border-radius: 10px;
+-moz-border-radius: 10px;
+border-radius: 10px;
+
+}
+header #input img{
+  float:left;
+  margin-right:10px;
+}
+
+header #userTweet{
+  display:none;
+}
+
 .tweet {
     font-family:'Titillium Web','Helvetica','Arial',sans;
     padding:10px;

@@ -92,6 +92,37 @@ $(document).ready(function() {
         discernTimeline();
     };
     showTweets();
-    setInterval(showTweets, 3000);
+    setInterval(showTweets, 400);
+    var guest;
+    var prepUserTweet = function(){
+        $('#userTweet').slideDown();
+        $('#userTweet').keypress(function(event) {
+        if(event.which == 13 || event.keycode == 13) {
+            var message = $('#userTweet').val();
+            console.log(guest + " mesg: " + message);
+            
+                var myUserTweet = {};
+                myUserTweet.user = guest;
+                myUserTweet.message = message;
+                myUserTweet.created_at = new Date();
+                streams.home.push(myUserTweet);
+                myUserTweet = {};
+                $('#userTweet').val('');
+                $('#userTweet').attr('placeholder', 'Tweet as many times as you like!')
+        }; // endif
+    });// end keypress function
+    }; //end prepUserTweet function
+
+    $('#userLogin').keypress(function(event) {
+        if(event.which == 13 || event.keycode == 13) {
+            guest = $('#userLogin').val();
+            console.log(guest);
+            $('#userLogin').slideUp();
+             prepUserTweet();
+
+        };
+    });
+
+
 });
 // END PROGRAM
